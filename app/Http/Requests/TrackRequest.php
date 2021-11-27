@@ -2,7 +2,11 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
+
+// use Illuminate\Foundation\Http\FormRequest; //دي بترجعه كا اوبجكت وفيه مصفوفه
+
+// دي بترجعه كا جيسون داتا
+use  App\Http\Requests\FormRequest;
 
 class TrackRequest extends FormRequest
 {
