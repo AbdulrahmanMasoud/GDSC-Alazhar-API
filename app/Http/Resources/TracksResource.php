@@ -5,6 +5,7 @@ namespace App\Http\Resources;
 use App\Models\Committe;
 use App\Models\Tracks;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\DB;
 
 class TracksResource extends JsonResource
 {
@@ -22,7 +23,7 @@ class TracksResource extends JsonResource
             'bio' => $this->bio,
             'cover' => $this->cover,
             'committe' => $this->committe->name,
-            // 'courses_count' => DB::table('courses')->where('track_id', $this->id)->count(),
+            'courses_count' => DB::table('courses')->where('track_id', $this->id)->count(),
             
           ];
     }

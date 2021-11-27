@@ -55,27 +55,31 @@ class User  extends Authenticatable implements JWTSubject
     public function courses(){
         return $this->hasMeny(Courses::class);
     }
-    // public function isLeader(){
-    //     if(Auth::user()->role_id === 1){
-    //         return true;
-    //     }else{
-    //         return false;
-    //     }
-    // }
-    // public function isHead(){
-    //     if(Auth::user()->role_id === 4){
-    //         return true;
-    //     }else{
-    //         return false;
-    //     }
-    // }
-    // public function isMember(){
-    //     if(Auth::user()->role_id === 5){
-    //         return true;
-    //     }else{
-    //         return false;
-    //     }
-    // }
+
+
+
+    
+    public function isLeader(){
+        if($this->role_id == 1){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public function isHead(){
+        if($this->role_id == 2){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public function isMember(){
+        if($this->role_id == 3){
+            return true;
+        }else{
+            return false;
+        }
+    }
     
 
     

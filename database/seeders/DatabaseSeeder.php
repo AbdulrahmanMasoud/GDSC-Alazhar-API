@@ -6,6 +6,7 @@ use App\Models\Committe;
 
 use App\Models\Courses;
 use App\Models\Dsc;
+use App\Models\Event;
 use App\Models\Role;
 use App\Models\Session;
 use App\Models\Tracks;
@@ -28,6 +29,7 @@ class DatabaseSeeder extends Seeder
         // Dsc::factory(1)->create();
         // Tracks::factory(40)->create();
         // Courses::factory(60)->create();
-        Session::factory(100)->create();
+        // Session::factory(100)->create();
+        // Event::factory(10)->create();
     }
 }

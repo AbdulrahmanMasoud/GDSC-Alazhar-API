@@ -3,16 +3,16 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CommitteRequest;
-use App\Http\Resources\CommitteResource;
-use App\Models\Committe;
+use App\Http\Requests\EventRequest;
+use App\Http\Resources\EventResource;
+use App\Models\Event;
 use Illuminate\Http\Request;
 use App\Traits\ResponsTrait;
 use Symfony\Component\HttpFoundation\Response;
 
-class CommittesController extends Controller
+class EventsController extends Controller
 {
-  use ResponsTrait;
+    use ResponsTrait;
     /**
      * Display a listing of the resource.
      *
@@ -20,9 +20,8 @@ class CommittesController extends Controller
      */
     public function index()
     {
-         
-        $committes = Committe::get();
-        return CommitteResource::collection($committes);
+        $events = Event::get();
+        return EventResource::collection($events);
     }
 
     /**
@@ -31,46 +30,45 @@ class CommittesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CommitteRequest $request)
+    public function store(EventRequest $request)
     {
-        Committe::create($request->all());
-        return $this->returnSuccessMessage('تم اضافة اللجنه بنجاح',Response::HTTP_CREATED);
+        Event::create($request->validated());
+        return $this->returnSuccessMessage('تم اضافة الحدث بنجاح',Response::HTTP_CREATED);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function show(Committe $committe)
+    public function show(Event $event)
     {
-        return new CommitteResource($committe);
+        return new EventResource($event);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function update(CommitteRequest $request,Committe $committe)
+    public function update(EventRequest  $request, Event $event)
     {
-        // dd($committe);
-        $committe->update($request->all());
+        $event->update($request->validated());
         return $this->returnSuccessMessage('تم التعديل بنجاح',Response::HTTP_OK);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Committe $committe)
+    public function destroy(Event $event)
     {
-        $committe->delete();
+        $event->delete();
         return $this->returnSuccessMessage('تم حذف اللجنه بنجاح بنجاح',Response::HTTP_OK);
     }
 }

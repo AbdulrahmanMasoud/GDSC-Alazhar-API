@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CommittesController;
 use App\Http\Controllers\Api\CoursesController;
+use App\Http\Controllers\Api\EventsController;
 use App\Http\Controllers\Api\SessionController;
 use App\Http\Controllers\Api\TracksController;
 use Illuminate\Http\Request;
@@ -29,3 +30,4 @@ Route::apiResource('/committe',CommittesController::class);
 Route::apiResource('/committe/{committe}/track',TracksController::class);
 Route::apiResource('/track/{track}/course',CoursesController::class);
 Route::apiResource('/course/{course}/session',SessionController::class);
+Route::apiResource('/event',EventsController::class);

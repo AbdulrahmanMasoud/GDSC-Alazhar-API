@@ -2,6 +2,9 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\HeadRole;
+use App\Http\Middleware\LeaderRole;
+use App\Http\Middleware\MemberRole;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
